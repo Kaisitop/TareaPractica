@@ -1,8 +1,19 @@
 document.getElementById("form-registro").addEventListener("submit", function(event) {
   event.preventDefault(); // evita envío automático
 
+  let nombre = document.getElementById("nombre").value.trim();
   let correo = document.getElementById("correo").value.trim();
   let password = document.getElementById("password").value.trim();
+
+  // Validar nombre
+  if (nombre === "") {
+    alert("El nombre no puede estar vacío");
+    return;
+  }
+  if (/^\d+$/.test(nombre)) {
+    alert("El nombre no puede contener solo números");
+    return;
+  }
 
   // Validar correo
   if (correo === "") {
